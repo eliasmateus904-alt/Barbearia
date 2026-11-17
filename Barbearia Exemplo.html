@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nome do Negócio</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf7f2;--fg:#141414;--muted:#5c5c5c;--card:#fff;--line:#e4ded3;--acc:#ff4d2e;--accfg:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f0f0f;--fg:#f4f1ec;--muted:#a8a8a8;--card:#1a1a1a;--line:#2c2c2c}}
+:root[data-theme="dark"]{--bg:#0f0f0f;--fg:#f4f1ec;--muted:#a8a8a8;--card:#1a1a1a;--line:#2c2c2c}
+*{box-sizing:inherit}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Sora,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55}
+.w{max-width:760px;margin:0 auto;padding:0 20px}
+section{padding:44px 0}
+h1{font-size:clamp(2rem,8vw,3.2rem);line-height:1.08;margin:0 0 16px;font-weight:800;letter-spacing:-.02em}
+h2{font-size:1.6rem;margin:0 0 20px;font-weight:800}
+h3{margin:0 0 6px;font-size:1.05rem}
+p{margin:0 0 14px;color:var(--muted)}
+.tag{display:inline-block;font-size:.8rem;font-weight:600;border:1.5px solid var(--fg);border-radius:99px;padding:4px 12px;margin-bottom:18px}
+.hl{color:var(--acc)}
+.btn{display:inline-block;background:var(--acc);color:var(--accfg);text-decoration:none;font-weight:800;padding:15px 26px;border-radius:12px;font-size:1rem}
+.btn.o{background:transparent;color:var(--fg);border:2px solid var(--fg);margin-left:8px}
+.hero{padding-top:56px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:20px}
+.card p{margin:0;font-size:.92rem}
+.ic{width:44px;height:44px;border-radius:12px;margin-bottom:14px}
+.i1{background:var(--acc)}.i2{background:var(--fg);border-radius:50%}
+.i3{background:linear-gradient(135deg,var(--acc) 50%,var(--fg) 50%)}.i4{background:var(--card);border:6px solid var(--acc)}
+.n{font-weight:800;font-size:2rem;color:var(--acc)}
+details{background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0 0}
+.cta{background:var(--fg);color:var(--bg);border-radius:20px;padding:36px 24px;text-align:center}
+.cta p{color:inherit;opacity:.8}
+footer{text-align:center;font-size:.85rem;color:var(--muted);padding:28px 0 96px}
+.fix{position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1.5px solid var(--line)}
+.fix .btn{display:block;text-align:center}
+</style>
+</head>
+<body>
+<div class="w" id="site"></div>
+<script>
+/* ===========================================================
+   MODELO DE SITE: edite SÓ esta área (CONFIG) para cada cliente.
+   Troque os textos entre aspas. Não apague aspas, vírgulas ou colchetes.
+   =========================================================== */
+var CONFIG = {
+  nome: "Barbearia Exemplo",
+  etiqueta: "Barbearia em sua cidade",
+  titulo: "Corte e barba com {estilo e pontualidade}.",
+  descricao: "Agende seu horário pelo WhatsApp e saia da cadeira com o visual em dia. Ambiente tranquilo, atendimento no horário marcado.",
+  botao1: "Agendar horário",
+  botao2: "Ver serviços",
+  whatsapp: "5535998029743",
+  mensagem: "Olá! Vi o site de exemplo da barbearia e quero um site assim para o meu negócio.",
+  cor: "#b5651d",
+  tituloServicos: "Nossos serviços",
+  servicos: [
+    {t: "Corte masculino", d: "Corte na tesoura ou máquina, do clássico ao moderno."},
+    {t: "Barba", d: "Barba modelada com toalha quente e acabamento na navalha."},
+    {t: "Corte + barba", d: "O combo completo para sair renovado."},
+    {t: "Sobrancelha", d: "Design discreto para valorizar o rosto."}
+  ],
+  tituloPassos: "Como agendar",
+  passos: [
+    {t: "Chame no WhatsApp", d: "Escolha o serviço e o melhor horário."},
+    {t: "Confirme", d: "Você recebe a confirmação na hora."},
+    {t: "Chegue e relaxe", d: "Atendimento no horário combinado."}
+  ],
+  tituloFaq: "Dúvidas comuns",
+  faq: [
+    {p: "Qual o horário de funcionamento?", r: "Segunda a sábado, das 9h às 19h."},
+    {p: "Preciso agendar?", r: "Recomendamos agendar para não esperar, mas atendemos também por ordem de chegada."},
+    {p: "Quais as formas de pagamento?", r: "Pix, cartão de débito e crédito, e dinheiro."}
+  ],
+  chamadaFinal: "Bora cuidar do visual?",
+  textoFinal: "Chame no WhatsApp e garanta seu horário.",
+  botaoFinal: "Agendar no WhatsApp",
+  botaoFixo: "Agendar no WhatsApp",
+  rodape: "Todos os direitos reservados."
+};
+/* ================= FIM DA ÁREA EDITÁVEL ================= */
+(function(){
+var C=CONFIG;
+function e(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+var wa="https://wa.me/"+C.whatsapp+"?text="+encodeURIComponent(C.mensagem);
+document.title=C.nome;
+document.documentElement.style.setProperty("--acc",C.cor);
+var titulo=e(C.titulo).replace(/\{([^}]*)\}/g,'<span class="hl">$1</span>');
+var h='<section class="hero"><span class="tag">'+e(C.etiqueta)+'</span><h1>'+titulo+'</h1><p>'+e(C.descricao)+'</p><a class="btn" href="'+wa+'">'+e(C.botao1)+'</a><a class="btn o" href="#servicos">'+e(C.botao2)+'</a></section>';
+h+='<section id="servicos"><h2>'+e(C.tituloServicos)+'</h2><div class="grid">';
+C.servicos.forEach(function(s,i){h+='<div class="card"><div class="ic i'+(i%4+1)+'"></div><h3>'+e(s.t)+'</h3><p>'+e(s.d)+'</p></div>';});
+h+='</div></section><section><h2>'+e(C.tituloPassos)+'</h2><div class="grid">';
+C.passos.forEach(function(s,i){h+='<div class="card"><div class="n">'+(i+1)+'</div><h3>'+e(s.t)+'</h3><p>'+e(s.d)+'</p></div>';});
+h+='</div></section><section><h2>'+e(C.tituloFaq)+'</h2>';
+C.faq.forEach(function(f){h+='<details><summary>'+e(f.p)+'</summary><p>'+e(f.r)+'</p></details>';});
+h+='</section><section><div class="cta"><h2>'+e(C.chamadaFinal)+'</h2><p>'+e(C.textoFinal)+'</p><a class="btn" href="'+wa+'">'+e(C.botaoFinal)+'</a></div></section>';
+h+='<footer>© '+e(C.nome)+'. '+e(C.rodape)+'</footer><div class="fix"><a class="btn" href="'+wa+'">'+e(C.botaoFixo)+'</a></div>';
+document.getElementById("site").innerHTML=h;
+})();
+</script>
+</body>
+</html>
